@@ -1,18 +1,36 @@
+"use client";
+
 import { Container } from '@/shared/ui/wrapppers/container';
 import { Typography } from '@/shared/ui/typography';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Card } from '@nextui-org/card';
 import { Image } from '@nextui-org/image';
+import { useTranslation } from 'react-i18next';
+import { useEffect, useState, Suspense } from 'react';
 
 export default function PartnersClients() {
+  const { t } = useTranslation('translation');
+  
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+      setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null;
+  }
+
   return (
     <Container flares={true} className="py-24">
+      <Suspense fallback={<div>Loading...</div>}>
       <Typography className="text-center mb-10" tag="h2">
-        Партнёры
+      {t(`partners_block.partners`)}
         <span className="animate-pulse">/</span>
-        Клиенты
+        {t(`partners_block.clients`)}
       </Typography>
+      </Suspense>
       <Swiper
         modules={[Autoplay]}
         speed={1000}

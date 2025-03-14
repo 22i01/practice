@@ -3,7 +3,9 @@ import { Accordion, AccordionItem } from '@nextui-org/react';
 import { Typography } from '@/shared/ui/typography';
 import { Container } from '@/shared/ui/wrapppers/container';
 
+
 export default function Faq({ flares = false }: { flares?: boolean }) {
+ 
   return (
     <Container flares={flares} className="py-24">
       <Typography className="text-center mb-10" tag="h2">

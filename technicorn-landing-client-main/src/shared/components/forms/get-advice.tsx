@@ -4,11 +4,13 @@ import { Input } from '@nextui-org/input';
 import { Autocomplete, AutocompleteItem } from '@nextui-org/autocomplete';
 import { Card } from '@nextui-org/card';
 import { Button } from '@nextui-org/button';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { toast } from 'sonner';
 import { Slider } from '@nextui-org/slider';
 import { Tooltip } from '@nextui-org/tooltip';
 import { InfoIcon } from '@nextui-org/shared-icons';
+import { useTranslation } from 'react-i18next';
+// const { t } = useTranslation('translation');
 
 const servicesList = [
   {
@@ -24,6 +26,17 @@ const servicesList = [
 ];
 
 export default function GetAdvice() {
+    
+    // const [isClient, setIsClient] = useState(false);
+  
+    // useEffect(() => {
+    //     setIsClient(true);
+    // }, []);
+  
+    // if (!isClient) {
+    //   return null;
+    // }
+  
   const [isLoading, setIsLoading] = useState(false);
   const handleSubmitForm = (e) => {
     e.preventDefault();

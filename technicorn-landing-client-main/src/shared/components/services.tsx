@@ -1,15 +1,30 @@
+"use client";
+
 import { Container } from '@/shared/ui/wrapppers/container';
 import { Typography } from '@/shared/ui/typography';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Card, CardHeader } from '@nextui-org/card';
 import { Image } from '@nextui-org/image';
+import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export default function Services() {
+const { t } = useTranslation('translation');
+const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+      setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null;
+  }
+
   return (
     <Container flares={true} className="py-24">
       <Typography className="text-center mb-10" tag="h2">
-        Услуги
+      {t(`services.services_label`)}
       </Typography>
       <Swiper
         modules={[Autoplay]}
@@ -48,10 +63,10 @@ export default function Services() {
             <Card className="aspect-[12/16]">
               <CardHeader className="absolute z-10 top-1 flex-col !items-start">
                 <p className="text-tiny text-white/60 uppercase font-bold">
-                  What to watch
+                {t(`services.services_name`)}
                 </p>
                 <h4 className="text-white font-medium text-large">
-                  Stream the Acme event
+                {t(`services.services_descr`)}
                 </h4>
               </CardHeader>
               <Image
