@@ -1,0 +1,69 @@
+{
+  "navigation": {
+  "home": "Главная",
+  "our_works": "Наши работы",
+  "prices": "Цены",
+  "about_us": "О нас"
+},
+
+  "hero_block": {
+    "hero_main": "Разработка IT решений для Вашего будущего",
+    "hero_descr": "Студия модульных систем, веб-разработки и автоматизации бизнес-процессов.",
+    "hero_connect_us": "Связь с нами",
+    "write_whatsapp": "Написать нам в WhatsApp",
+    "write_telegram": "Написать нам в Telegram",
+    "send_mail": "Написать нам на почту",
+    "leave_order": "Оставить заявку"
+  },
+
+  "partners_block": {
+    "partners": "Партнеры",
+    "clients": "Клиенты"
+  },
+
+  "services": {
+    "services_label": "Услуги",
+    "services_name": "Наименование услуги",
+    "services_descr": "Описание услуги"
+  },
+
+  "question_block": {
+      "question": "Вопрос",
+      "answer": "Ответ"
+  },
+
+  "our_team": {
+    "team_label": "Наша команда",
+    "team_name": "Иван Иванов",
+    "team_spec": "Frontend разработчик",
+    "read_more": "Подробнее"
+  },
+
+  "get_advice": {
+    "advice_label": "Оставьте заявку и мы свяжемся с вами",
+    "advice_type": "Выберите услугу",
+    "advice_budget": "Бюджет",
+    "create_web": "Создание web-приложения",
+    "create_bot": "Создание telegram-mini app",
+    "send_post": "Отправить",
+    "success_message": "Ваша заявка отправлена, мы свяжемся с вами в ближайшее время",
+    "average": "Выберите примерный бюджет проекта для более точного формирования предложения"
+  },
+
+  "footer": {
+    "menu": "Меню",
+    "help": "Помощь",
+    "social_n": "Соц. сети",
+    "reviews": "Отзывы",
+    "faq": "FAQ",
+    "team": "Наша команда",
+    "rights_docs": "Правовые документы"
+
+  }
+
+}
+
+
+
+
+

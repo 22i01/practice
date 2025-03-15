@@ -1,0 +1,62 @@
+{
+    "navigation": {
+    "home": "Home",
+    "our_works": "Our works",
+    "prices": "Prices",
+    "about_us": "About us"
+  },
+
+  "hero_block": {
+    "hero_main": "IT solutions development for your future",
+    "hero_descr": "A studio for modular systems, web development, and business process automation.",
+    "hero_connect_us": "Contact us",
+    "write_whatsapp": "Write to us on WhatsApp",
+    "write_telegram": "Write to us on Telegram",
+    "send_mail": "Write to us via email",
+    "leave_order": "Leave an order"
+  },
+
+  "partners_block": {
+  "partners": "Partners",
+  "clients": "Clients"
+},
+
+"services": {
+  "services_label": "Services",
+  "services_name": "Service Name",
+  "services_descr": "Service Description"
+},
+
+"question_block": {
+    "question": "Question",
+    "answer": "Answer"
+  },
+
+"our_team": {
+    "team_label": "Our Team",
+    "team_name": "Ivan Ivanov",
+    "team_spec": "Frontend Developer",
+    "read_more": "Read More"
+},
+
+"get_advice": {
+  "advice_label": "Leave a request and we will contact you",
+    "advice_type": "Choose a service",
+    "advice_budget": "Budget",
+    "create_web": "Web application development",
+    "create_bot": "Telegram-mini app development",
+    "send_post": "Send",
+    "success_message": "Your application has been submitted, we will contact you shortly.",
+  "average": "Select an approximate project budget for more accurate proposal formation."
+},
+
+"footer": {
+    "menu": "Menu",
+    "help": "Help",
+    "social_n": "Social Networks",
+    "reviews": "Reviews",
+    "faq": "FAQ",
+    "team": "Our Team",
+    "rights_docs": "Legal Documents"
+  }
+}
