@@ -8,10 +8,12 @@ import { Card, CardHeader } from '@nextui-org/card';
 import { Image } from '@nextui-org/image';
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { services } from '@/shared/constants/services';
 
 export default function Services() {
 const { t } = useTranslation('translation');
 const [isClient, setIsClient] = useState(false);
+
 
   useEffect(() => {
       setIsClient(true);
@@ -56,26 +58,30 @@ const [isClient, setIsClient] = useState(false);
           },
         }}
         // onSlideChange={() => console.log('slide change')}
-        onSwiper={(swiper) => console.log(swiper)}
+       // onSwiper={(swiper) => console.log(swiper)}
       >
-        {[...Array(10)].map((_, index) => (
-          <SwiperSlide key={index}>
-            <Card className="aspect-[12/16]">
-              <CardHeader className="absolute z-10 top-1 flex-col !items-start">
-                <p className="text-tiny text-white/60 uppercase font-bold">
-                {t(`services.services_name`)}
-                </p>
-                <h4 className="text-white font-medium text-large">
-                {t(`services.services_descr`)}
-                </h4>
-              </CardHeader>
-              <Image
-                removeWrapper
-                alt="Card background"
-                className="z-0 w-full h-full object-cover"
-                src="https://nextui.org/images/card-example-4.jpeg"
-              />
-            </Card>
+        {services.map((service) => (
+          <SwiperSlide key={service.id}>
+<Card className="aspect-[12/16] flex relative group overflow-hidden">
+  <Image
+    removeWrapper
+    alt="Card background"
+    className="z-0 w-full h-full object-cover dark:filter dark:brightness-75"
+    src={service.image}
+  />
+  <CardHeader className="absolute inset-0 flex flex-col justify-between p-4 bg-gradient-to-b from-black/60 to-transparent">
+    <h4 className="text-lg text-white/90 uppercase font-bold">
+      {t(`services.${service.name}`)}
+    </h4>
+    <div className='rounded-lg p-2'>
+    <p className="text-white/70 font-medium   backdrop-blur-sm text-sm text-balance overflow-hidden line-clamp-3 transition-all duration-300 group-hover:line-clamp-none group-hover:backdrop-blur-sm">
+      {t(`services.${service.descr}`)}
+   </p>
+    </div>
+  </CardHeader>
+</Card>
+
+
           </SwiperSlide>
         ))}
       </Swiper>

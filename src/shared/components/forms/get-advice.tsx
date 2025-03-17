@@ -1,6 +1,6 @@
 import { Container } from '@/shared/ui/wrapppers/container';
 import { Typography } from '@/shared/ui/typography';
-import { Input } from '@nextui-org/input';
+import { Input, Textarea } from '@nextui-org/input';
 import { Autocomplete, AutocompleteItem } from '@nextui-org/autocomplete';
 import { Card } from '@nextui-org/card';
 import { Button } from '@nextui-org/button';
@@ -35,7 +35,23 @@ export default function GetAdvice() {
      value: 'tg-mini-app',
      description: '',
    },
+    {
+      label: t('get_advice.create_sites'),
+      value: 'web-sites',
+      description: '',
+    },
+    {
+      label: t('get_advice.create_mobile_apps'),
+      value: 'mobile-app',
+      description: '',
+      },
+    {
+      label: t('get_advice.create_CRM'),  
+      value: 'crm',
+      description: '',
+    },
  ];
+
   const handleSubmitForm = (e) => {
     e.preventDefault();
     setIsLoading((prevState) => !prevState);
@@ -52,11 +68,28 @@ export default function GetAdvice() {
             <Typography className="text-center mb-10" tag="h3">
             {t(`get_advice.advice_label`)}
             </Typography>
+
+            <Input
+              required={true}
+              type="input"
+              name="name"
+              label={t(`get_advice.name`)}
+              size="sm"
+            />
+
             <Input
               required={true}
               type="email"
               name="email"
-              label="E-mail"
+              label={t(`get_advice.email`)}
+              size="sm"
+            />
+
+            <Input
+              required={true}
+              type="input"
+              name="phone"
+              label={t(`get_advice.phone`)}
               size="sm"
             />
             <Autocomplete
@@ -74,15 +107,15 @@ export default function GetAdvice() {
 
             <Slider
               label={t(`get_advice.advice_budget`)}
-              step={100}
-              maxValue={20000}
+              step={50000}
+              maxValue={1000000}
               minValue={0}
-              defaultValue={[0, 8000]}
+              defaultValue={[0, 500000]}
               showSteps={true}
               showTooltip={true}
               showOutline={true}
               disableThumbScale={true}
-              formatOptions={{ style: 'currency', currency: 'USD' }}
+              formatOptions={{ style: 'currency', currency: 'KZT' }}
               renderLabel={({ children, ...props }) => (
                 <label
                   {...props}
@@ -102,7 +135,7 @@ export default function GetAdvice() {
               )}
               tooltipValueFormatOptions={{
                 style: 'currency',
-                currency: 'USD',
+                currency: 'KZT',
                 maximumFractionDigits: 0,
               }}
               classNames={{
@@ -133,7 +166,13 @@ export default function GetAdvice() {
                 },
               }}
             />
-
+            <Textarea
+              required={true}
+              type="input"
+              name="comment"
+              label={t(`get_advice.comment`)}
+              size="sm"
+            />
             <Button
               isLoading={isLoading}
               className="mt-5"

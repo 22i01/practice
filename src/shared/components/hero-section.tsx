@@ -15,7 +15,6 @@ import { Tooltip } from '@nextui-org/tooltip';
 import { useTranslation } from 'react-i18next';
 import { useState, useEffect } from 'react';
 
-
 export default function HeroSection() {
   const { t } = useTranslation('translation');
   const [isClient, setIsClient] = useState(false);
@@ -43,28 +42,31 @@ export default function HeroSection() {
             <Typography className="text-foreground bg-blend-difference mix-blend-difference my-5">
             {t(`hero_block.hero_descr`)}
             </Typography>
+            <Typography tag="h5" className="text-text-foreground bg-blend-difference mix-blend-difference my-5">
+            {t(`hero_block.hero_text`)}
+            </Typography>
             <div className="flex flex-col justify-center items-center gap-1">
               <ButtonGroup className="shadow-xl">
                 <Button className="pointer-events-none" disabled={true}>
                 {t(`hero_block.hero_connect_us`)}
                 </Button>
                 <Tooltip placement="bottom" content={t(`hero_block.write_whatsapp`)}>
-                  <Button className="bg-green-400 color-white fill-white">
+                  <Button className="bg-green-400 color-white fill-white"  onClick={() => window.open('https://wa.me/+77028131808', '_blank')}>
                     <BsWhatsapp className="h-5 w-5 color-inherit fill-inherit" />
                   </Button>
                 </Tooltip>
                 <Tooltip placement="bottom" content={t(`hero_block.write_telegram`)}>
-                  <Button className="bg-blue-400 color-white fill-white">
+                  <Button className="bg-blue-400 color-white fill-white"   onClick={() => window.open('https://t.me/@KKAsteve', '_blank')}>
                     <LiaTelegramPlane className="h-5 w-5 color-inherit fill-inherit" />
                   </Button>
                 </Tooltip>
                 <Tooltip placement="bottom" content={t(`hero_block.send_mail`)}>
-                  <Button className="bg-orange-400 color-white fill-white">
+                  <Button className="bg-orange-400 color-white fill-white" onClick={() => window.open('mailto:info@technicorn.kz ', '_blank')}>
                     <MdOutlineAlternateEmail className="h-5 w-5 color-inherit fill-inherit" />
                   </Button>
                 </Tooltip>
                 <Tooltip placement="bottom" content={t(`hero_block.leave_order`)}>
-                  <Button className="bg-purple-400 color-white fill-white">
+                  <Button className="bg-purple-400 color-white fill-white" >  
                     <RiShakeHandsLine className="h-5 w-5 color-inherit fill-inherit" />
                   </Button>
                 </Tooltip>

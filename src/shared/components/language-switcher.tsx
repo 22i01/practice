@@ -1,10 +1,13 @@
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from '@nextui-org/react';
 import { useTranslation } from 'react-i18next';
 import React, { useEffect, useState } from 'react';
+import { useTheme } from 'next-themes';
 
 export function LanguageSwitcher() {
   const { i18n } = useTranslation();
   const [currentLang, setCurrentLang] = useState(i18n.language);
+  const { theme, setTheme } = useTheme();
+
 
   useEffect(() => {
     const savedLang = localStorage.getItem('language');
@@ -19,11 +22,15 @@ export function LanguageSwitcher() {
     setCurrentLang(lang);
     localStorage.setItem('language', lang);
   };
+  
+  const buttonStyle = theme === 'light' 
+  ? { backgroundColor: '#007bff', color: '#fff' } 
+  : { backgroundColor: '#343a40', color: '#fff' };
 
   return (
     <Dropdown>
       <DropdownTrigger>
-        <Button color="primary" size="sm">
+        <Button color="primary"  size="sm" style={buttonStyle}>
           {currentLang.toUpperCase()}
         </Button>
       </DropdownTrigger>
