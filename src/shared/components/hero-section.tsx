@@ -14,21 +14,34 @@ import { RiShakeHandsLine } from 'react-icons/ri';
 import { Tooltip } from '@nextui-org/tooltip';
 import { useTranslation } from 'react-i18next';
 import { useState, useEffect } from 'react';
+import { backendAPI } from '@/utils/api/json-placeholder/instance';
 
 export default function HeroSection() {
   const { t } = useTranslation('translation');
   const [isClient, setIsClient] = useState(false);
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    backendAPI.get('/items/hero_text')
+      .then(response => {
+        setData(response.data);
+        
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }, []);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   
-    useEffect(() => {
-      setIsClient(true);
-    }, []);
-  
-    if (!isClient) {
-      return null; 
-    }
-  
+  if (!isClient || !data) {
+    return <div></div>; 
+  }
+
   return (
-    
     <section className="relative mb-32 bg-blend-difference">
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
         <AnimateBackgroundParticles className="absolute top-0 left-0 w-full h-full" />
@@ -37,26 +50,28 @@ export default function HeroSection() {
         <div className="flex items-start justify-between">
           <div>
             <Typography tag="h1" className='text-5xl'>
-            {t(`hero_block.hero_main`)}
+              
+              {data.data.title_ru}
+                          
             </Typography>
             <Typography className="text-foreground bg-blend-difference mix-blend-difference my-5">
-            {t(`hero_block.hero_descr`)}
+              {t(`hero_block.hero_descr`)}
             </Typography>
             <Typography tag="h5" className="text-text-foreground bg-blend-difference mix-blend-difference my-5">
-            {t(`hero_block.hero_text`)}
+              {t(`hero_block.hero_text`)}
             </Typography>
             <div className="flex flex-col justify-center items-center gap-1">
               <ButtonGroup className="shadow-xl">
                 <Button className="pointer-events-none" disabled={true}>
-                {t(`hero_block.hero_connect_us`)}
+                  {t(`hero_block.hero_connect_us`)}
                 </Button>
                 <Tooltip placement="bottom" content={t(`hero_block.write_whatsapp`)}>
-                  <Button className="bg-green-400 color-white fill-white"  onClick={() => window.open('https://wa.me/+77028131808', '_blank')}>
+                  <Button className="bg-green-400 color-white fill-white" onClick={() => window.open('https://wa.me/+77028131808', '_blank')}>
                     <BsWhatsapp className="h-5 w-5 color-inherit fill-inherit" />
                   </Button>
                 </Tooltip>
                 <Tooltip placement="bottom" content={t(`hero_block.write_telegram`)}>
-                  <Button className="bg-blue-400 color-white fill-white"   onClick={() => window.open('https://t.me/@KKAsteve', '_blank')}>
+                  <Button className="bg-blue-400 color-white fill-white" onClick={() => window.open('https://t.me/@KKAsteve', '_blank')}>
                     <LiaTelegramPlane className="h-5 w-5 color-inherit fill-inherit" />
                   </Button>
                 </Tooltip>
@@ -66,7 +81,7 @@ export default function HeroSection() {
                   </Button>
                 </Tooltip>
                 <Tooltip placement="bottom" content={t(`hero_block.leave_order`)}>
-                  <Button className="bg-purple-400 color-white fill-white" >  
+                  <Button className="bg-purple-400 color-white fill-white">
                     <RiShakeHandsLine className="h-5 w-5 color-inherit fill-inherit" />
                   </Button>
                 </Tooltip>

@@ -9,6 +9,7 @@ import { Image } from '@nextui-org/image';
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { services } from '@/shared/constants/services';
+import { backendAPI } from '@/utils/api/json-placeholder/instance';
 
 export default function Services() {
 const { t } = useTranslation('translation');
@@ -88,3 +89,4 @@ const [isClient, setIsClient] = useState(false);
     </Container>
   );
 }
+

@@ -1,5 +1,3 @@
-"use client";
-
 import { Container } from '@/shared/ui/wrapppers/container';
 import { Typography } from '@/shared/ui/typography';
 import { Autoplay } from 'swiper/modules';
@@ -8,6 +6,9 @@ import { Card } from '@nextui-org/card';
 import { Image } from '@nextui-org/image';
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState, Suspense } from 'react';
+import { partnersClients } from '@/shared/constants/partners-clients';
+import { Tooltip } from '@nextui-org/tooltip';
+import { Button, ButtonGroup } from '@nextui-org/button';
 
 export default function PartnersClients() {
   const { t } = useTranslation('translation');
@@ -31,7 +32,7 @@ export default function PartnersClients() {
         {t(`partners_block.clients`)}
       </Typography>
       </Suspense>
-      <Swiper
+      <Swiper 
         modules={[Autoplay]}
         speed={1000}
         autoplay={{
@@ -63,16 +64,20 @@ export default function PartnersClients() {
         // onSlideChange={() => console.log('slide change')}
         onSwiper={(swiper) => console.log(swiper)}
       >
-        {[...Array(10)].map((_, index) => (
-          <SwiperSlide key={index}>
-            <Card className="aspect-[4/3]">
+         {partnersClients.map((partnersClient) => (
+          <SwiperSlide key={partnersClient.id}>
+            <Card className="aspect-[4/3] flex-col justify-between pt-6 px-6">
               <Image
                 removeWrapper
                 alt="Card background"
-                className="z-0 w-full h-full object-cover"
-                src="https://nextui.org/images/card-example-2.jpeg"
+                className="max-width:100 height:auto"
+                src={partnersClient.image}
               />
+              <Tooltip placement="bottom" content={t(`partners_block.gotowebsite`)}>
+              <a className='flex self-center pb-2' href={partnersClient.urlPaRT} target="_blank" >{partnersClient.name}</a>
+                </Tooltip>
             </Card>
+            
           </SwiperSlide>
         ))}
       </Swiper>
